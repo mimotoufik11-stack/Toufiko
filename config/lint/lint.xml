@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- Disable the given check in this project -->
+    <issue id="InvalidPackage">
+        <ignore path="**/kotlin-stdlib-*.jar" />
+    </issue>
+
+    <!-- Ignore specific path for all checks -->
+    <issue id="all">
+        <ignore path="**/build/**" />
+        <ignore path="**/generated/**" />
+    </issue>
+
+    <!-- Error: issues we consider critical -->
+    <issue id="NewApi" severity="error" />
+    <issue id="InlinedApi" severity="error" />
+    <issue id="ObsoleteSdkInt" severity="warning" />
+
+    <!-- Performance issues -->
+    <issue id="UnusedResources" severity="warning" />
+    <issue id="UselessParent" severity="warning" />
+
+    <!-- Security issues -->
+    <issue id="HardcodedText" severity="warning" />
+</lint>

@@ -1,0 +1,344 @@
+{
+  "items": [
+    {
+      "slug": "sharh-us-sunnah",
+      "title": "The Creed of Imam al-Barbahari",
+      "description": "Key takeaways and study guide for Sharh us-Sunnah.",
+      "category": "books",
+      "subcategory": "creed",
+      "author": "Abu Ameenah",
+      "date": "2024-01-01",
+      "tags": ["creed", "aqeedah", "al-barbahari"],
+      "source": "https://ajurry.com/books/sharh-us-sunnah",
+      "summary": "Sharh us-Sunnah by Imam al-Barbahari is a concise manual detailing the creed of Ahlus-Sunnah wal-Jamaa'ah with study guide and discussion prompts."
+    },
+    {
+      "slug": "foundations-of-tawheed",
+      "title": "Foundations of Tawheed",
+      "description": "Sequential lessons introducing the categories of Tawheed.",
+      "category": "lessons",
+      "subcategory": "beginner",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-01",
+      "tags": ["tawheed", "beginner", "creed"],
+      "source": "https://ajurry.com/lessons/foundations-of-tawheed",
+      "summary": "This syllabus outlines the essential topics required to understand Allah's oneness in worship, lordship, and names and attributes."
+    },
+    {
+      "slug": "pillars-of-islam",
+      "title": "Clarifying the Pillars of Islam",
+      "description": "A concise explanation of the five pillars with evidences from the Quran and Sunnah.",
+      "category": "articles",
+      "subcategory": "fiqh",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-01",
+      "tags": ["pillars", "fiqh", "worship", "islam"],
+      "source": "https://ajurry.com/articles/pillars-of-islam",
+      "summary": "Comprehensive explanation of the five pillars of Islam with evidences from Qur'an and Sunnah, covering testimony, prayer, zakah, fasting, and Hajj."
+    },
+    {
+      "slug": "purifying-wealth",
+      "title": "Purifying Wealth from Impermissible Income",
+      "description": "Verdicts on removing unlawful earnings.",
+      "category": "fatwas",
+      "subcategory": "finance",
+      "author": "Permanent Committee for Scholarly Research and Ifta",
+      "date": "2024-01-01",
+      "tags": ["wealth", "purification", "halal-income", "finance"],
+      "source": "https://ajurry.com/fatwas/purifying-wealth",
+      "summary": "Scholarly verdicts on removing unlawful earnings through repentance, relinquishing unlawful portions, and giving charity without expecting reward."
+    },
+    {
+      "slug": "ibn-baz",
+      "title": "Shaykh Abdul Aziz bin Baz",
+      "description": "Biography, timeline, and curated works.",
+      "category": "scholars",
+      "subcategory": "biography",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-01",
+      "tags": ["biography", "scholars", "ibn-baz", "mufti"],
+      "source": "https://ajurry.com/scholars/ibn-baz",
+      "summary": "Biography of Shaykh Ibn Baz (رحمه الله), Grand Mufti of Saudi Arabia, highlighting his contributions to teaching, fatawa, and Islamic institutions."
+    },
+    {
+      "slug": "understanding-shirk",
+      "title": "Understanding Shirk and its Types",
+      "description": "Comprehensive study of polytheism and its manifestations in modern times.",
+      "category": "lessons",
+      "subcategory": "intermediate",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-15",
+      "tags": ["tawheed", "shirk", "creed", "aqeedah"],
+      "source": "https://ajurry.com/lessons/understanding-shirk",
+      "summary": "Detailed examination of shirk and its forms: major, minor, and hidden, with contemporary examples and guidance for avoidance."
+    },
+    {
+      "slug": "salafi-methodology",
+      "title": "The Methodology of the Salaf",
+      "description": "Understanding the correct approach to understanding and practicing Islam.",
+      "category": "lessons",
+      "subcategory": "intermediate",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-20",
+      "tags": ["methodology", "salaf", "manhaj", "creed"],
+      "source": "https://ajurry.com/lessons/salafi-methodology",
+      "summary": "Introduction to Salafi methodology, principles distinguishing it from other approaches, and guidance on proper understanding of Islam."
+    },
+    {
+      "slug": "etiquettes-seeking-knowledge",
+      "title": "Etiquettes of Seeking Knowledge",
+      "description": "Essential manners and conduct for students of Islamic knowledge.",
+      "category": "lessons",
+      "subcategory": "beginner",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-25",
+      "tags": ["knowledge", "etiquettes", "students", "methodology"],
+      "source": "https://ajurry.com/lessons/etiquettes-seeking-knowledge",
+      "summary": "Essential manners and conduct for students of Islamic knowledge, covering sincerity, respect, time management, and avoiding pitfalls."
+    },
+    {
+      "slug": "sunnah-daily-life",
+      "title": "The Importance of Sunnah in Daily Life",
+      "description": "Practical guidance on implementing the Prophet's teachings in modern life.",
+      "category": "lessons",
+      "subcategory": "beginner",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-02-01",
+      "tags": ["sunnah", "daily-life", "worship", "character"],
+      "source": "https://ajurry.com/lessons/sunnah-daily-life",
+      "summary": "Practical guidance on implementing Prophetic teachings in various aspects of daily life, from worship to social interactions."
+    },
+    {
+      "slug": "reality-of-tawheed",
+      "title": "The Reality of Tawheed",
+      "description": "Audio lecture explaining the true meaning and implications of monotheism in Islam.",
+      "category": "audio",
+      "subcategory": "creed",
+      "author": "Shaykh Salih al-Fawzan",
+      "date": "2024-01-10",
+      "tags": ["tawheed", "creed", "audio-lecture", "al-fawzan"],
+      "source": "https://ajurry.com/audio/reality-of-tawheed",
+      "summary": "45-minute audio lecture by Shaykh al-Fawzan explaining the three categories of Tawheed and their practical implications in daily life."
+    },
+    {
+      "slug": "warning-against-innovation",
+      "title": "Warning Against Innovation in Religion",
+      "description": "Critical lecture on the dangers of bid'ah and its impact on Islamic practice.",
+      "category": "audio",
+      "subcategory": "warning",
+      "author": "Shaykh Rabee' al-Madkhali",
+      "date": "2024-01-15",
+      "tags": ["bid'ah", "innovation", "warning", "audio-lecture", "al-madkhali"],
+      "source": "https://ajurry.com/audio/warning-against-innovation",
+      "summary": "52-minute lecture warning against religious innovations, their historical context, and practical guidance for protection from bid'ah."
+    },
+    {
+      "slug": "rights-of-parents",
+      "title": "The Rights of Parents in Islam",
+      "description": "Comprehensive explanation of parental rights and obligations toward parents.",
+      "category": "audio",
+      "subcategory": "family",
+      "author": "Shaykh Abdullah al-Bukhari",
+      "date": "2024-01-20",
+      "tags": ["parents", "family-rights", "obedience", "audio-lecture", "al-bukhari"],
+      "source": "https://ajurry.com/audio/rights-of-parents",
+      "summary": "38-minute lecture on parental rights in Islam, covering obedience, respect, financial support, and balancing obligations."
+    },
+    {
+      "slug": "importance-of-prayer",
+      "title": "The Importance of Prayer in Islam",
+      "description": "Detailed explanation of prayer's significance and its role in a Muslim's life.",
+      "category": "audio",
+      "subcategory": "worship",
+      "author": "Shaykh Ubayd al-Jabiri",
+      "date": "2024-01-25",
+      "tags": ["prayer", "salah", "worship", "priorities", "audio-lecture", "al-jabiri"],
+      "source": "https://ajurry.com/audio/importance-of-prayer",
+      "summary": "41-minute lecture on the central importance of prayer as the pillar of Islam and its role in maintaining connection with Allah."
+    },
+    {
+      "slug": "halal-haram-concept",
+      "title": "The Concept of Halal and Haram in Islam",
+      "description": "Understanding the Islamic framework for permissibility and prohibition.",
+      "category": "articles",
+      "subcategory": "fiqh",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-18",
+      "tags": ["halal", "haram", "fiqh", "islamic-law", "ethics"],
+      "source": "https://ajurry.com/articles/halal-haram-concept",
+      "summary": "Comprehensive explanation of Islamic framework for permissibility and prohibition, including contemporary applications."
+    },
+    {
+      "slug": "merits-seeking-knowledge",
+      "title": "The Merits of Seeking Knowledge in Islam",
+      "description": "Exploring the virtues and rewards of pursuing Islamic knowledge.",
+      "category": "articles",
+      "subcategory": "knowledge",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-22",
+      "tags": ["knowledge", "virtues", "rewards", "islamic-education"],
+      "source": "https://ajurry.com/articles/merits-seeking-knowledge",
+      "summary": "Exploration of the virtues and rewards of seeking Islamic knowledge, with practical guidance for aspiring students."
+    },
+    {
+      "slug": "maintaining-family-ties",
+      "title": "Maintaining Family Ties in Islam",
+      "description": "The importance and methodology of preserving family relationships.",
+      "category": "articles",
+      "subcategory": "family",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-28",
+      "tags": ["family", "silat-rahim", "relationships", "social-ethics"],
+      "source": "https://ajurry.com/articles/maintaining-family-ties",
+      "summary": "Importance and methodology of maintaining family ties in Islam, with practical guidance for contemporary challenges."
+    },
+    {
+      "slug": "islamic-brotherhood",
+      "title": "The Concept of Islamic Brotherhood",
+      "description": "Understanding the unique bond between believers and its practical implications.",
+      "category": "articles",
+      "subcategory": "social",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-02-02",
+      "tags": ["brotherhood", "unity", "muslim-community", "social-ethics"],
+      "source": "https://ajurry.com/articles/islamic-brotherhood",
+      "summary": "Understanding Islamic brotherhood, its foundation, rights and responsibilities, and practical implementation in daily life."
+    },
+    {
+      "slug": "birthday-celebrations",
+      "title": "Ruling on Celebrating Birthdays",
+      "description": "Islamic verdict on the permissibility of birthday celebrations.",
+      "category": "fatwas",
+      "subcategory": "customs",
+      "author": "Shaykh Abdul Aziz bin Baz",
+      "date": "2024-01-12",
+      "tags": ["birthdays", "celebrations", "customs", "innovation"],
+      "source": "https://ajurry.com/fatwas/birthday-celebrations",
+      "summary": "Islamic ruling on birthday celebrations, explaining why they are considered impermissible due to innovation and imitation."
+    },
+    {
+      "slug": "working-in-banks",
+      "title": "Working in Banks and Financial Institutions",
+      "description": "Islamic ruling on employment in conventional banking systems.",
+      "category": "fatwas",
+      "subcategory": "employment",
+      "author": "Shaykh Salih al-Fawzan",
+      "date": "2024-01-16",
+      "tags": ["banking", "riba", "employment", "halal-income"],
+      "source": "https://ajurry.com/fatwas/working-in-banks",
+      "summary": "Ruling on working in conventional banks due to involvement with riba, with permissible alternatives in Islamic finance."
+    },
+    {
+      "slug": "social-media-dawah",
+      "title": "Using Social Media for Dawah",
+      "description": "Guidelines for utilizing social platforms while avoiding prohibitions.",
+      "category": "fatwas",
+      "subcategory": "technology",
+      "author": "Shaykh Abdullah al-Ghudayan",
+      "date": "2024-01-24",
+      "tags": ["social-media", "dawah", "internet", "guidelines"],
+      "source": "https://ajurry.com/fatwas/social-media-dawah",
+      "summary": "Guidelines for using social media for dawah while avoiding prohibitions, with practical recommendations for safe usage."
+    },
+    {
+      "slug": "muhammad-bin-abdul-wahhab",
+      "title": "Shaykh Muhammad bin Abdul Wahhab",
+      "description": "Biography and contributions of the renowned reformer and scholar.",
+      "category": "scholars",
+      "subcategory": "biography",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-01",
+      "tags": ["creed", "tawheed", "reform", "najd", "biography"],
+      "source": "https://ajurry.com/scholars/muhammad-bin-abdul-wahhab",
+      "summary": "Biography of Shaykh Muhammad bin Abdul Wahhab, his revival of Tawheed, and his contributions to Islamic reform."
+    },
+    {
+      "slug": "ibn-taymiyyah",
+      "title": "Shaykh al-Islam Ibn Taymiyyah",
+      "description": "Comprehensive biography of the towering scholar and mujaddid of the 7th century.",
+      "category": "scholars",
+      "subcategory": "biography",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-01",
+      "tags": ["creed", "hadith", "fiqh", "comparative-religion", "biography"],
+      "source": "https://ajurry.com/scholars/ibn-taymiyyah",
+      "summary": "Comprehensive biography of Ibn Taymiyyah, his scholarly contributions, and his influence on Islamic scholarship."
+    },
+    {
+      "slug": "al-bukhari",
+      "title": "Imam al-Bukhari",
+      "description": "Biography of the compiler of the most authentic book after the Qur'an.",
+      "category": "scholars",
+      "subcategory": "biography",
+      "author": "Salafi Science Network Editorial Team",
+      "date": "2024-01-01",
+      "tags": ["hadith", "sahih-al-bukhari", "biography", "hadith-sciences"],
+      "source": "https://ajurry.com/scholars/al-bukhari",
+      "summary": "Biography of Imam al-Bukhari, his methodology in compiling Sahih al-Bukhari, and his contributions to Hadith sciences."
+    },
+    {
+      "slug": "kitab-at-tawheed",
+      "title": "Kitab at-Tawheed",
+      "description": "The most important book on Islamic monotheism and its practical applications.",
+      "category": "books",
+      "subcategory": "creed",
+      "author": "Shaykh Muhammad bin Abdul Wahhab",
+      "date": "2024-01-01",
+      "tags": ["tawheed", "creed", "monotheism", "islamic-theology"],
+      "source": "https://ajurry.com/books/kitab-at-tawheed",
+      "summary": "The most important book on Islamic monotheism, systematically explaining Tawheed with Qur'an and Sunnah evidences."
+    },
+    {
+      "slug": "riyad-as-saliheen",
+      "title": "Riyad as-Saliheen",
+      "description": "A comprehensive collection of authentic Hadith covering all aspects of Islamic life.",
+      "category": "books",
+      "subcategory": "hadith",
+      "author": "Imam an-Nawawi",
+      "date": "2024-01-01",
+      "tags": ["hadith", "daily-life", "worship", "character", "an-nawawi"],
+      "source": "https://ajurry.com/books/riyad-as-saliheen",
+      "summary": "Comprehensive collection of 1,900 authentic Hadith organized by topics covering all aspects of Islamic life."
+    },
+    {
+      "slug": "umdat-al-ahkam",
+      "title": "Umdat al-Ahkam",
+      "description": "Essential Hadith compilation covering the foundations of Islamic jurisprudence.",
+      "category": "books",
+      "subcategory": "fiqh",
+      "author": "Imam al-Maqdisi",
+      "date": "2024-01-01",
+      "tags": ["hadith", "fiqh", "jurisprudence", "worship", "legal-rulings"],
+      "source": "https://ajurry.com/books/umdat-al-ahkam",
+      "summary": "Essential compilation of 400 authentic Hadith that form the basis of Islamic jurisprudence, organized by fiqh chapters."
+    }
+  ],
+  "categories": {
+    "books": {
+      "count": 4,
+      "description": "Classical and contemporary Islamic books on various sciences"
+    },
+    "lessons": {
+      "count": 5,
+      "description": "Structured lessons on Islamic topics for different levels"
+    },
+    "articles": {
+      "count": 5,
+      "description": "Informative articles on contemporary Islamic topics"
+    },
+    "fatwas": {
+      "count": 4,
+      "description": "Islamic verdicts and scholarly responses to common questions"
+    },
+    "scholars": {
+      "count": 4,
+      "description": "Biographies of notable Islamic scholars throughout history"
+    },
+    "audio": {
+      "count": 4,
+      "description": "Audio lectures and beneficial recordings"
+    }
+  },
+  "total_items": 26,
+  "last_updated": "2024-02-03"
+}

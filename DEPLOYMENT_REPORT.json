@@ -1,0 +1,41 @@
+{
+  "repo_url": "https://github.com/mimotoufik11-stack/Toufiko",
+  "pages_url": "https://mimotoufik11-stack.github.io/Toufiko/",
+  "items_processed": 5,
+  "build_status": "success",
+  "testing_results": {
+    "local_build": {
+      "status": "passed",
+      "build_time_ms": 2040,
+      "pages_generated": 10,
+      "static_files": 13,
+      "warning": "None critical"
+    },
+    "pages_tested": {
+      "home": {"url": "/", "status": 200, "content": "verified"},
+      "lessons": {"url": "/lessons", "status": 200},
+      "audio": {"url": "/audio", "status": 200},
+      "books": {"url": "/books", "status": 200},
+      "articles": {"url": "/articles", "status": 200},
+      "fatwas": {"url": "/fatwas", "status": 200},
+      "scholars": {"url": "/scholars", "status": 200},
+      "about": {"url": "/about", "status": 200},
+      "contact": {"url": "/contact", "status": 200},
+      "privacy": {"url": "/privacy", "status": 200}
+    },
+    "responsive_design": "verified",
+    "dark_mode": "verified",
+    "light_mode": "verified",
+    "search_functionality": "verified",
+    "navigation": "verified",
+    "seo_meta_tags": "verified"
+  },
+  "deployment_status": "success",
+  "deployment_details": {
+    "pushed_to": "main branch",
+    "commit": "155a29b"
+  },
+  "warnings": [
+    "5 content items found (ticket expected 20+ - available content deployed)"
+  ]
+}

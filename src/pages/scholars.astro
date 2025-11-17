@@ -1,0 +1,33 @@
+---
+import CollectionLayout from '../layouts/CollectionLayout.astro';
+import ContentCard from '@components/ContentCard.astro';
+
+const scholars = [
+  {
+    title: 'Shaykh Ibn Baz',
+    description: 'Biography, selected works, and audio addressing creed and worship.',
+    href: '/scholars/ibn-baz',
+    badge: '20th Century'
+  },
+  {
+    title: 'Shaykh al-Albani',
+    description: 'Focus on hadith verification, methodology, and beneficial audio lessons.',
+    href: '/scholars/al-albani',
+    badge: 'Hadith'
+  },
+  {
+    title: 'Shaykh Ibn Uthaymeen',
+    description: 'Extensive resources on fiqh, aqeedah, and detailed explanations of classical works.',
+    href: '/scholars/ibn-uthaymeen',
+    badge: 'Fiqh'
+  }
+];
+---
+<CollectionLayout
+  title="Scholars of the Salafi Methodology"
+  description="Explore timeless guidance through biographies, audio, and written legacies."
+>
+  {scholars.map((item) => (
+    <ContentCard {...item} />
+  ))}
+</CollectionLayout>

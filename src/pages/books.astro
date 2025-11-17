@@ -1,0 +1,48 @@
+---
+import CollectionLayout from '../layouts/CollectionLayout.astro';
+import { Fragment } from 'astro/jsx-runtime';
+import ContentCard from '@components/ContentCard.astro';
+
+const books = [
+  {
+    title: 'The Creed of Imam al-Barbahari',
+    description: 'A concise overview of orthodox creed accompanied by classical commentary.',
+    href: '/books/sharh-us-sunnah',
+    badge: 'Creed'
+  },
+  {
+    title: 'Bulugh al-Maram',
+    description: 'A collection of foundational hadith with annotations for fiqh rulings.',
+    href: '/books/bulugh-al-maram',
+    badge: 'Hadith'
+  },
+  {
+    title: 'Riyadh as-Salihin',
+    description: 'The famous compilation of hadith focusing on etiquettes, virtues, and character.',
+    href: '/books/riyadh-as-salihin',
+    badge: 'Tazkiyah'
+  }
+];
+
+const filters = ['Arabic', 'English', 'Beginner', 'Advanced'];
+---
+<CollectionLayout
+  title="Recommended Books"
+  description="A curated reading pathway for students and families alike."
+  intro="These works have been carefully selected for authenticity and clarity, with recommendations ranging from beginner to advanced studies."
+  cta={{ text: 'View all recommendations', href: '/books/recommended-reading' }}
+>
+  <Fragment slot="filters">
+    <div class="flex flex-wrap gap-2">
+      {filters.map((filter) => (
+        <span class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text)]/70 dark:bg-slate-900/60">
+          {filter}
+        </span>
+      ))}
+    </div>
+  </Fragment>
+
+  {books.map((item) => (
+    <ContentCard {...item} />
+  ))}
+</CollectionLayout>

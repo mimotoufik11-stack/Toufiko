@@ -1,0 +1,53 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Fragment } from 'astro/jsx-runtime';
+
+export interface Props {
+  title: string;
+  description?: string;
+  mediaType: 'audio' | 'video' | 'lessons';
+}
+
+const {
+  title,
+  description = '',
+  mediaType
+} = Astro.props;
+
+if (!title) {
+  throw new Error('MediaLayout requires a `title` prop.');
+}
+
+const hasHero = Astro.slots.has('hero');
+const hasFilters = Astro.slots.has('filters');
+---
+<BaseLayout {title} {description}>
+  {hasHero && (
+    <Fragment slot="hero">
+      <slot name="hero" />
+    </Fragment>
+  )}
+  <section class="space-y-10">
+    <header class="space-y-3">
+      <p class="text-xs uppercase tracking-[0.35em] text-primary/70">
+        {mediaType === 'audio' ? 'Audio Library' : mediaType === 'video' ? 'Video Sessions' : 'Learning Path'}
+      </p>
+      <h1 class="text-3xl font-semibold text-[var(--color-text)] sm:text-4xl">{title}</h1>
+      {description && (
+        <p class="max-w-3xl text-base text-[var(--color-text)]/70">
+          {description}
+        </p>
+      )}
+    </header>
+
+    {hasFilters && (
+      <div class="flex flex-wrap items-center gap-2 rounded-2xl border border-primary/10 bg-[var(--color-muted)]/60 p-4 text-xs font-semibold uppercase tracking-[0.2em] dark:bg-slate-900/60">
+        <slot name="filters" />
+      </div>
+    )}
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <slot />
+    </div>
+  </section>
+</BaseLayout>

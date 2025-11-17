@@ -1,0 +1,33 @@
+---
+import CollectionLayout from '../layouts/CollectionLayout.astro';
+import ContentCard from '@components/ContentCard.astro';
+
+const fatwas = [
+  {
+    title: 'Purifying Wealth from Impermissible Income',
+    description: 'Guidance from the Permanent Committee on removing unlawful earnings.',
+    href: '/fatwas/purifying-wealth',
+    badge: 'Finance'
+  },
+  {
+    title: 'The Rulings of Zakat on Modern Assets',
+    description: 'Evidence-based answers on zakat for stocks, pensions, and investments.',
+    href: '/fatwas/zakat-modern-assets',
+    badge: 'Zakat'
+  },
+  {
+    title: 'Etiquettes of Seeking Knowledge for Women',
+    description: 'Fatwas highlighting the importance and guidelines for women pursuing knowledge.',
+    href: '/fatwas/seeking-knowledge-for-women',
+    badge: 'Etiquettes'
+  }
+];
+---
+<CollectionLayout
+  title="Fatwas & Verdicts"
+  description="Translations of verdicts from senior scholars addressing contemporary matters."
+>
+  {fatwas.map((item) => (
+    <ContentCard {...item} />
+  ))}
+</CollectionLayout>

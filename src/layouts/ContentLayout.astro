@@ -1,0 +1,52 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Fragment } from 'astro/jsx-runtime';
+
+export interface Props {
+  title: string;
+  description?: string;
+  category?: string;
+  updated?: string;
+}
+
+const {
+  title,
+  description = '',
+  category,
+  updated
+} = Astro.props;
+
+if (!title) {
+  throw new Error('ContentLayout requires a `title` prop.');
+}
+
+const hasHero = Astro.slots.has('hero');
+---
+<BaseLayout {title} {description}>
+  {hasHero && (
+    <Fragment slot="hero">
+      <slot name="hero" />
+    </Fragment>
+  )}
+  <article class="prose prose-slate max-w-none dark:prose-invert">
+    <header class="mb-8 border-b border-primary/10 pb-6">
+      <p class="text-xs uppercase tracking-[0.25em] text-primary/80">
+        {category ?? 'Knowledge Base'}
+      </p>
+      <h1 class="mt-3 text-3xl font-semibold text-[var(--color-text)] sm:text-4xl">
+        {title}
+      </h1>
+      {description && (
+        <p class="mt-3 text-base text-[var(--color-text)]/70">
+          {description}
+        </p>
+      )}
+      {updated && (
+        <p class="mt-3 text-xs text-[var(--color-text)]/50">
+          Last updated {updated}
+        </p>
+      )}
+    </header>
+    <slot />
+  </article>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+const year = new Date().getFullYear();
+const navigation = [
+  {
+    title: 'Study',
+    links: [
+      { href: '/lessons', label: 'Lessons' },
+      { href: '/audio', label: 'Audio' },
+      { href: '/books', label: 'Books' }
+    ]
+  },
+  {
+    title: 'Research',
+    links: [
+      { href: '/articles', label: 'Articles' },
+      { href: '/fatwas', label: 'Fatwas' },
+      { href: '/scholars', label: 'Scholars' }
+    ]
+  },
+  {
+    title: 'Community',
+    links: [
+      { href: '/about', label: 'About' },
+      { href: '/contact', label: 'Contact' },
+      { href: '/privacy', label: 'Privacy' }
+    ]
+  }
+];
+---
+<footer class="border-t border-primary/10 bg-[var(--color-muted)]/60 py-10 text-sm text-[var(--color-text)]/70 dark:bg-slate-900/70">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:justify-between">
+    <div class="max-w-md space-y-3">
+      <div class="flex items-center gap-3 text-base font-semibold tracking-tight">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-xs font-bold uppercase text-primary">SSN</span>
+        <span class="text-[var(--color-text)]">Salafi Science Network</span>
+      </div>
+      <p class="text-sm text-[var(--color-text)]/70">
+        Sharing authentic Islamic knowledge through lessons, texts, and guidance from the scholars of the Salaf.
+      </p>
+    </div>
+    <div class="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-3">
+      {navigation.map((section) => (
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-text)]">
+            {section.title}
+          </h3>
+          <ul class="space-y-2">
+            {section.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="transition hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="mx-auto mt-8 flex w-full max-w-6xl flex-col-reverse gap-4 px-4 text-xs text-[var(--color-text)]/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <p>© {year} Salafi Science Network. All rights reserved.</p>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="mailto:contact@salafisciencenetwork.org" class="hover:text-primary">
+        contact@salafisciencenetwork.org
+      </a>
+      <a href="/privacy" class="hover:text-primary">Privacy Policy</a>
+    </div>
+  </div>
+</footer>

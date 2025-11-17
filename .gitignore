@@ -1,7 +1,43 @@
+# Dependencies
 node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
 dist/
+.astro/
+
+# Environment variables
 .env
 .env.*
-.DS_Store
+!.env.example
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Misc
+.cache/
+.turbo/
+
+# Deployment reports (optional - can be removed after review)
+DEPLOYMENT_*.json
+FINAL_TESTING_SUMMARY.md
+FINALIZATION_SUMMARY.md

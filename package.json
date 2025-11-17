@@ -7,7 +7,12 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "type-check": "astro check",
+    "lint": "astro lint",
+    "format": "prettier --write . --plugin prettier-plugin-astro",
+    "clean": "rm -rf dist node_modules/.astro",
+    "serve": "astro preview --host --port 4321"
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",

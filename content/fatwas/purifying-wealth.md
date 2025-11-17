@@ -1,7 +1,17 @@
 ---
 title: Purifying Wealth from Impermissible Income
 description: Verdicts on removing unlawful earnings.
-source: Permanent Committee for Scholarly Research and Ifta
+category: Finance
+author: Permanent Committee for Scholarly Research and Ifta
+scholar: Permanent Committee for Scholarly Research and Ifta
+contentType: fatwa
+languages:
+  - English
+date: 2024-04-02
+tags:
+  - finance
+  - repentance
+  - purification
 ---
 
 The scholars state that whoever acquires wealth through unlawful means must hasten to repent, relinquish the unlawful

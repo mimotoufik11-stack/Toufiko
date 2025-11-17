@@ -1,8 +1,17 @@
 ---
 title: Clarifying the Pillars of Islam
 description: A concise explanation of the five pillars with evidences from the Quran and Sunnah.
-category: fiqh
+category: Fiqh
 author: Salafi Science Network Editorial Team
+contentType: article
+languages:
+  - English
+date: 2024-05-10
+tags:
+  - pillars
+  - fiqh
+  - fundamentals
+  - worship
 ---
 
 ## Introduction

@@ -7,7 +7,8 @@ const alias = {
   '@styles': fileURLToPath(new URL('./styles', import.meta.url)),
   '@content': fileURLToPath(new URL('./content', import.meta.url)),
   '@layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
-  '@scripts': fileURLToPath(new URL('./scripts', import.meta.url))
+  '@scripts': fileURLToPath(new URL('./scripts', import.meta.url)),
+  '@data': fileURLToPath(new URL('./src/data', import.meta.url))
 };
 
 export default defineConfig({

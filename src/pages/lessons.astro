@@ -1,45 +1,27 @@
 ---
-import MediaLayout from '../layouts/MediaLayout.astro';
 import { Fragment } from 'astro/jsx-runtime';
-import ContentCard from '@components/ContentCard.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContentExplorer from '@components/ContentExplorer.astro';
+import { getContentItems } from '@data/content';
 
-const lessons = [
-  {
-    title: 'Foundations of Tawheed',
-    description: 'Step-by-step lessons covering the pillars of iman, shirk, and the testimony of faith.',
-    href: '/lessons/foundations-of-tawheed',
-    meta: '12 lessons • Beginner'
-  },
-  {
-    title: 'Fiqh of Worship',
-    description: 'Purification, prayer, fasting, and zakah explained with evidences from the Quran and Sunnah.',
-    href: '/lessons/fiqh-of-worship',
-    meta: '18 lessons • Intermediate'
-  },
-  {
-    title: 'Forty Hadith of Imam an-Nawawi',
-    description: 'Memorise and study the comprehensive hadith collection with reliable commentary.',
-    href: '/lessons/forty-hadith',
-    meta: '40 lessons • Memorisation'
-  }
-];
+const title = 'Structured Lesson Paths';
+const description =
+  'Progressive learning modules designed to help students build knowledge with clarity and methodology.';
+const explorerTitle = 'Filter lessons and curricula';
 
-const filters = ['Creed', 'Fiqh', 'Hadith', 'Tazkiyah'];
+const allItems = getContentItems();
 ---
-<MediaLayout
-  title="Structured Lesson Paths"
-  description="Progressive learning modules designed to help students build knowledge with clarity and methodology."
-  mediaType="lessons"
->
-  <Fragment slot="filters">
-    {filters.map((filter) => (
-      <span class="rounded-full border border-primary/20 px-3 py-1 text-[var(--color-text)]/70">
-        {filter}
-      </span>
-    ))}
+<BaseLayout {title} {description}>
+  <Fragment slot="hero">
+    <div class="space-y-4">
+      <p class="text-xs uppercase tracking-[0.3em] text-primary/70">Learning journeys</p>
+      <h1 class="text-3xl font-semibold text-[var(--color-text)] sm:text-4xl">{title}</h1>
+      <p class="max-w-3xl text-sm text-[var(--color-text)]/70">
+        Use the search and filters to find lesson plans by subject, level, language, or scholar recommendation. The library
+        updates automatically as new content is published.
+      </p>
+    </div>
   </Fragment>
 
-  {lessons.map((item) => (
-    <ContentCard {...item} badge="Curriculum" />
-  ))}
-</MediaLayout>
+  <ContentExplorer items={allItems} initialCollections={['lessons']} title={explorerTitle} />
+</BaseLayout>

@@ -28,64 +28,169 @@ const resultsId = `${inputId}-results`;
   const input = document.getElementById({JSON.stringify(inputId)});
   const resultsPanel = document.getElementById({JSON.stringify(resultsId)});
 
+  const escapeHtml = (value) =>
+    String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  const highlightText = (text, indices = []) => {
+    if (!indices.length) {
+      return escapeHtml(text);
+    }
+
+    const sorted = [...indices].sort((a, b) => a[0] - b[0]);
+    let cursor = 0;
+    let output = '';
+
+    sorted.forEach(([start, end]) => {
+      output += escapeHtml(text.slice(cursor, start));
+      output += `<mark class="rounded bg-primary/20 px-1 text-primary">${escapeHtml(text.slice(start, end + 1))}</mark>`;
+      cursor = end + 1;
+    });
+
+    output += escapeHtml(text.slice(cursor));
+    return output;
+  };
+
+  const buildSnippet = (entry, match) => {
+    if (!match || !match.indices.length) {
+      return escapeHtml(entry.excerpt);
+    }
+
+    const [first] = match.indices;
+    const radius = 80;
+    const start = Math.max(first[0] - radius, 0);
+    const end = Math.min(first[1] + radius, entry.body.length - 1);
+    const snippet = entry.body.slice(start, end + 1);
+    const adjusted = match.indices
+      .map(([from, to]) => [from - start, to - start])
+      .filter(([from, to]) => from >= 0 && to - start <= snippet.length);
+
+    const prefix = start > 0 ? '…' : '';
+    const suffix = end < entry.body.length - 1 ? '…' : '';
+
+    return `${prefix}${highlightText(snippet, adjusted)}${suffix}`;
+  };
+
+  const formatCollection = (collection) => collection.charAt(0).toUpperCase() + collection.slice(1);
+  const formatDate = (value) => {
+    try {
+      return new Intl.DateTimeFormat('en', { dateStyle: 'medium' }).format(new Date(value));
+    } catch (error) {
+      return value;
+    }
+  };
+
   if (input && resultsPanel) {
     const fuse = new Fuse(searchEntries, {
       includeScore: true,
-      threshold: 0.35,
+      includeMatches: true,
+      threshold: 0.32,
       ignoreLocation: true,
-      keys: ['title', 'description', 'tags']
+      keys: [
+        { name: 'title', weight: 0.4 },
+        { name: 'body', weight: 0.35 },
+        { name: 'author', weight: 0.15 },
+        { name: 'tags', weight: 0.1 }
+      ]
     });
 
-    const renderResults = (items) => {
-      if (!items.length) {
-        resultsPanel.classList.add('hidden');
-        resultsPanel.innerHTML = '';
-        return;
-      }
+    let debounceTimer = null;
 
+    const renderNoResults = (query) => {
       resultsPanel.innerHTML = `
-        <ul class="divide-y divide-primary/10">
-          ${items
-            .slice(0, 6)
-            .map(
-              (item) => `
-                <li>
-                  <a href="${item.item.url}" class="block px-4 py-3 transition hover:bg-primary/10">
-                    <p class="text-sm font-semibold text-[var(--color-text)]">${item.item.title}</p>
-                    <p class="mt-1 text-xs text-[var(--color-text)]/70">${item.item.description}</p>
-                  </a>
-                </li>
-              `
-            )
-            .join('')}
-        </ul>
+        <div class="p-5 text-sm text-[var(--color-text)]/70">
+          No results found for <span class="font-semibold text-[var(--color-text)]">"${escapeHtml(query)}"</span>.
+        </div>
       `;
       resultsPanel.classList.remove('hidden');
     };
 
-    const handleInput = (event) => {
-      const query = event.target.value.trim();
+    const renderResults = (query, results) => {
       if (!query) {
         resultsPanel.classList.add('hidden');
         resultsPanel.innerHTML = '';
         return;
       }
 
-      const matches = fuse.search(query);
-      renderResults(matches);
+      if (!results.length) {
+        renderNoResults(query);
+        return;
+      }
+
+      const itemsHtml = results
+        .slice(0, 8)
+        .map(({ item, matches }) => {
+          const titleMatch = matches?.find((match) => match.key === 'title');
+          const bodyMatch = matches?.find((match) => match.key === 'body');
+          const titleHtml = highlightText(item.title, titleMatch?.indices ?? []);
+          const snippet = buildSnippet(item, bodyMatch);
+          const meta = [formatCollection(item.collection), formatDate(item.date), item.languages.join(', ')].filter(Boolean).join(' • ');
+          const authorLabel = item.author ? `<span class="text-xs text-[var(--color-text)]/60">by ${escapeHtml(item.author)}</span>` : '';
+          const tagList = item.tags.slice(0, 3).map((tag) => `<span class="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.2em] text-primary">${escapeHtml(tag)}</span>`).join('');
+
+          return `
+            <li>
+              <a href="${item.url}" class="flex flex-col gap-2 px-4 py-3 transition hover:bg-primary/10">
+                <div class="flex flex-col gap-1">
+                  <p class="text-sm font-semibold leading-5 text-[var(--color-text)]">${titleHtml}</p>
+                  <p class="text-[11px] uppercase tracking-[0.3em] text-primary/70">${escapeHtml(meta)}</p>
+                  ${authorLabel}
+                </div>
+                <p class="text-xs leading-relaxed text-[var(--color-text)]/70">${snippet}</p>
+                ${tagList ? `<div class="flex flex-wrap gap-1">${tagList}</div>` : ''}
+              </a>
+            </li>
+          `;
+        })
+        .join('');
+
+      resultsPanel.innerHTML = `
+        <div class="max-h-96 overflow-y-auto">
+          <ul class="divide-y divide-primary/10">${itemsHtml}</ul>
+        </div>
+      `;
+      resultsPanel.classList.remove('hidden');
     };
 
-    input.addEventListener('input', handleInput);
+    const performSearch = (query) => {
+      const trimmed = query.trim();
+      if (!trimmed) {
+        resultsPanel.classList.add('hidden');
+        resultsPanel.innerHTML = '';
+        return;
+      }
+      const matches = fuse.search(trimmed);
+      renderResults(trimmed, matches);
+    };
+
+    input.addEventListener('input', (event) => {
+      const { value } = event.target;
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => performSearch(value), 200);
+    });
+
     input.addEventListener('focus', (event) => {
-      if (event.target.value.trim()) {
-        const matches = fuse.search(event.target.value.trim());
-        renderResults(matches);
+      const { value } = event.target;
+      if (value.trim()) {
+        performSearch(value);
       }
     });
 
     document.addEventListener('click', (event) => {
       if (!resultsPanel.contains(event.target) && event.target !== input) {
         resultsPanel.classList.add('hidden');
+      }
+    });
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        resultsPanel.classList.add('hidden');
+        resultsPanel.innerHTML = '';
+        input.blur();
       }
     });
   }

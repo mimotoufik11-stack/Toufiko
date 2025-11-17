@@ -12,6 +12,8 @@ const alias = {
 
 export default defineConfig({
   srcDir: 'src',
+  site: 'https://mimotoufik11-stack.github.io',
+  base: '/Toufiko',
   integrations: [tailwind()],
   vite: {
     resolve: {
@@ -20,6 +22,5 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: []
-  },
-  site: 'https://salafisciencenetwork.org'
+  }
 });

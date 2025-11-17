@@ -1,7 +1,11 @@
 node_modules/
 dist/
+.astro/
 .env
 .env.*
 .DS_Store
 .vscode/
 .idea/
+*.log
+npm-debug.log*
+yarn-error.log

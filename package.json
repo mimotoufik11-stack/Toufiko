@@ -14,7 +14,9 @@
     "astro": "^5.15.9",
     "feed": "^5.1.0",
     "fuse.js": "^7.1.0",
-    "remark": "^15.0.1"
+    "gray-matter": "^4.0.3",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",

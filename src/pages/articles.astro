@@ -1,33 +1,26 @@
 ---
-import CollectionLayout from '../layouts/CollectionLayout.astro';
-import ContentCard from '@components/ContentCard.astro';
+import { Fragment } from 'astro/jsx-runtime';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContentExplorer from '@components/ContentExplorer.astro';
+import { getContentItems } from '@data/content';
 
-const articles = [
-  {
-    title: 'Clarifying the Pillars of Islam',
-    description: 'A succinct explanation of each pillar with evidences and practical advice.',
-    href: '/articles/pillars-of-islam',
-    badge: 'Fiqh'
-  },
-  {
-    title: 'Understanding Bid’ah in Light of the Sunnah',
-    description: 'Frameworks from the Salaf on avoiding innovation while adhering to clear proofs.',
-    href: '/articles/understanding-bidah',
-    badge: 'Methodology'
-  },
-  {
-    title: 'Principles of Authenticity in Hadith Sciences',
-    description: 'A primer on hadith classifications and the preservation of the Sunnah.',
-    href: '/articles/principles-of-authenticity',
-    badge: 'Hadith'
-  }
-];
+const title = 'Articles & Research';
+const description = 'Timely translations, research articles, and thematic studies for the seeker of knowledge.';
+const explorerTitle = 'Explore articles and research papers';
+
+const allItems = getContentItems();
 ---
-<CollectionLayout
-  title="Articles & Research"
-  description="Timely translations, research articles, and thematic studies for the seeker of knowledge."
->
-  {articles.map((item) => (
-    <ContentCard {...item} />
-  ))}
-</CollectionLayout>
+<BaseLayout {title} {description}>
+  <Fragment slot="hero">
+    <div class="space-y-4">
+      <p class="text-xs uppercase tracking-[0.3em] text-primary/70">Knowledge hub</p>
+      <h1 class="text-3xl font-semibold text-[var(--color-text)] sm:text-4xl">{title}</h1>
+      <p class="max-w-3xl text-sm text-[var(--color-text)]/70">
+        Dive into curated writings covering creed, methodology, fiqh, and current affairs. Use the filters to surface
+        materials most relevant to your studies.
+      </p>
+    </div>
+  </Fragment>
+
+  <ContentExplorer items={allItems} initialCollections={['articles']} title={explorerTitle} />
+</BaseLayout>

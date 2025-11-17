@@ -1,8 +1,16 @@
 ---
 title: The Creed of Imam al-Barbahari
 description: Key takeaways and study guide for Sharh us-Sunnah.
-category: creed
+category: Creed
 author: Abu Ameenah
+contentType: book
+languages:
+  - English
+date: 2023-11-20
+tags:
+  - creed
+  - aqeedah
+  - barbahari
 ---
 
 Sharh us-Sunnah by Imam al-Barbahari is a concise manual detailing the creed of Ahlus-Sunnah wal-Jamaa'ah. Students are

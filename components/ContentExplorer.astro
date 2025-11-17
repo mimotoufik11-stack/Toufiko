@@ -1,0 +1,549 @@
+---
+import type { Collection, ContentItem } from '@data/content';
+
+interface Props {
+  items: ContentItem[];
+  initialCollections?: Collection[];
+  title?: string;
+  allowCategoryFilter?: boolean;
+}
+
+const {
+  items,
+  initialCollections = [],
+  title = 'Explore the knowledge base',
+  allowCategoryFilter = true
+} = Astro.props;
+
+if (!Array.isArray(items) || !items.length) {
+  throw new Error('ContentExplorer requires a non-empty `items` array.');
+}
+
+const uniqueId = Math.random().toString(36).slice(2, 8);
+const dataElementId = `content-explorer-data-${uniqueId}`;
+const searchInputId = `content-explorer-search-${uniqueId}`;
+const resultsContainerId = `content-explorer-results-${uniqueId}`;
+const countElementId = `content-explorer-count-${uniqueId}`;
+const emptyStateId = `content-explorer-empty-${uniqueId}`;
+const resetButtonId = `content-explorer-reset-${uniqueId}`;
+const scope = `content-explorer-${uniqueId}`;
+
+const collectionOptions = Array.from(new Set(items.map((item) => item.collection))).sort((a, b) =>
+  a.localeCompare(b)
+);
+const authorOptions = Array.from(new Set(items.map((item) => item.author))).sort((a, b) => a.localeCompare(b));
+const scholarOptions = Array.from(new Set(items.flatMap((item) => (item.scholar ? [item.scholar] : [])))).sort((a, b) =>
+  a.localeCompare(b)
+);
+const languageOptions = Array.from(new Set(items.flatMap((item) => item.languages))).sort((a, b) =>
+  a.localeCompare(b)
+);
+const contentTypeOptions = Array.from(new Set(items.map((item) => item.contentType))).sort((a, b) =>
+  a.localeCompare(b)
+);
+
+const collectionLabels: Record<Collection, string> = {
+  articles: 'Articles',
+  books: 'Books',
+  lessons: 'Lessons',
+  audio: 'Audio',
+  fatwas: 'Fatwas',
+  scholars: 'Scholars'
+};
+---
+<section class="space-y-8" data-scope={scope}>
+  <div class="flex flex-col gap-3">
+    <h2 class="text-2xl font-semibold text-[var(--color-text)] sm:text-3xl">{title}</h2>
+    <p class="text-sm text-[var(--color-text)]/70">
+      Search and refine by category, author, language, and more. Results update instantly to help you locate the right
+      resources for your study path.
+    </p>
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-[260px,1fr]">
+    <aside class="rounded-3xl border border-primary/10 bg-[var(--color-muted)]/40 p-5 dark:bg-slate-900/60">
+      <div class="space-y-6">
+        {allowCategoryFilter && (
+          <fieldset class="space-y-3">
+            <legend class="text-sm font-semibold text-[var(--color-text)]">Categories</legend>
+            <p class="text-xs text-[var(--color-text)]/60">Select one or more collections to display.</p>
+            <div class="grid grid-cols-2 gap-2" data-role="category-filters">
+              {collectionOptions.map((collection) => (
+                <label class="flex items-center gap-2 text-xs font-medium text-[var(--color-text)]/80">
+                  <input
+                    type="checkbox"
+                    value={collection}
+                    class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary"
+                    data-filter="category"
+                    checked={initialCollections.includes(collection)}
+                  />
+                  <span>{collectionLabels[collection] ?? collection}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        )}
+
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-[var(--color-text)]" for={`${scope}-author`}>
+            Author
+          </label>
+          <select
+            id={`${scope}-author`}
+            class="w-full rounded-xl border border-primary/20 bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)]"
+            data-filter="author"
+          >
+            <option value="">All authors</option>
+            {authorOptions.map((author) => (
+              <option value={author}>{author}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-[var(--color-text)]" for={`${scope}-scholar`}>
+            Scholar
+          </label>
+          <select
+            id={`${scope}-scholar`}
+            class="w-full rounded-xl border border-primary/20 bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)]"
+            data-filter="scholar"
+          >
+            <option value="">All scholars</option>
+            {scholarOptions.map((scholar) => (
+              <option value={scholar}>{scholar}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-[var(--color-text)]" for={`${scope}-language`}>
+            Language
+          </label>
+          <select
+            id={`${scope}-language`}
+            class="w-full rounded-xl border border-primary/20 bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)]"
+            data-filter="language"
+          >
+            <option value="">All languages</option>
+            {languageOptions.map((language) => (
+              <option value={language}>{language}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-[var(--color-text)]" for={`${scope}-type`}>
+            Content type
+          </label>
+          <select
+            id={`${scope}-type`}
+            class="w-full rounded-xl border border-primary/20 bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)]"
+            data-filter="type"
+          >
+            <option value="">All types</option>
+            {contentTypeOptions.map((type) => (
+              <option value={type}>{type}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-[var(--color-text)]" for={`${scope}-sort`}>
+            Sort by date
+          </label>
+          <select
+            id={`${scope}-sort`}
+            class="w-full rounded-xl border border-primary/20 bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)]"
+            data-filter="sort"
+          >
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+
+        <button
+          type="button"
+          id={resetButtonId}
+          class="w-full rounded-xl bg-primary px-3 py-2 text-sm font-semibold text-white transition hover:bg-primary/90"
+        >
+          Reset filters
+        </button>
+      </div>
+    </aside>
+
+    <section class="space-y-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex w-full items-center gap-2 sm:max-w-md">
+          <input
+            id={searchInputId}
+            type="search"
+            placeholder="Search by title, content, tags, or author"
+            class="w-full rounded-2xl border border-primary/10 bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            autocomplete="off"
+          />
+        </div>
+        <p id={countElementId} class="text-sm font-medium text-[var(--color-text)]/80"></p>
+      </div>
+
+      <div
+        id={resultsContainerId}
+        class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+        aria-live="polite"
+        aria-busy="false"
+      ></div>
+
+      <div
+        id={emptyStateId}
+        class="hidden rounded-3xl border border-primary/10 bg-[var(--color-muted)]/60 p-10 text-center text-sm text-[var(--color-text)]/70 dark:bg-slate-900/60"
+      >
+        No matching resources were found. Adjust your filters or try a different search term.
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id={dataElementId}>
+    {JSON.stringify({ items, initialCollections })}
+  </script>
+</section>
+
+<script type="module">
+  import Fuse from 'fuse.js';
+
+  const scope = {JSON.stringify(scope)};
+  const searchInput = document.getElementById({JSON.stringify(searchInputId)});
+  const resultsContainer = document.getElementById({JSON.stringify(resultsContainerId)});
+  const countElement = document.getElementById({JSON.stringify(countElementId)});
+  const emptyState = document.getElementById({JSON.stringify(emptyStateId)});
+  const resetButton = document.getElementById({JSON.stringify(resetButtonId)});
+  const dataElement = document.getElementById({JSON.stringify(dataElementId)});
+
+  if (!dataElement) {
+    throw new Error('ContentExplorer data element not found.');
+  }
+
+  const payload = JSON.parse(dataElement.textContent || '{"items": [], "initialCollections": []}');
+  const items = Array.isArray(payload.items) ? payload.items : [];
+  const initialCollections = Array.isArray(payload.initialCollections) ? payload.initialCollections : [];
+  const collectionOptions = Array.from(new Set(items.map((item) => item.collection)));
+
+  const escapeHtml = (value) =>
+    String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  const highlightText = (text, indices = []) => {
+    if (!indices.length) {
+      return escapeHtml(text);
+    }
+
+    const sorted = [...indices].sort((a, b) => a[0] - b[0]);
+    let cursor = 0;
+    let output = '';
+
+    sorted.forEach(([start, end]) => {
+      output += escapeHtml(text.slice(cursor, start));
+      output += `<mark class="rounded bg-primary/20 px-1 text-primary">${escapeHtml(text.slice(start, end + 1))}</mark>`;
+      cursor = end + 1;
+    });
+
+    output += escapeHtml(text.slice(cursor));
+    return output;
+  };
+
+  const buildSnippet = (entry, bodyMatch) => {
+    if (!bodyMatch || !bodyMatch.indices.length) {
+      return escapeHtml(entry.excerpt);
+    }
+
+    const [first] = bodyMatch.indices;
+    const radius = 100;
+    const start = Math.max(first[0] - radius, 0);
+    const end = Math.min(first[1] + radius, entry.body.length - 1);
+    const snippet = entry.body.slice(start, end + 1);
+    const adjusted = bodyMatch.indices
+      .map(([from, to]) => [from - start, to - start])
+      .filter(([from, to]) => from >= 0 && to - start <= snippet.length);
+    const prefix = start > 0 ? '…' : '';
+    const suffix = end < entry.body.length - 1 ? '…' : '';
+    return `${prefix}${highlightText(snippet, adjusted)}${suffix}`;
+  };
+
+  const formatDate = (value) => {
+    try {
+      return new Intl.DateTimeFormat('en', { dateStyle: 'medium' }).format(new Date(value));
+    } catch (error) {
+      return escapeHtml(value);
+    }
+  };
+
+  const formatCollection = (collection) => collection.charAt(0).toUpperCase() + collection.slice(1);
+
+  const categoryInputs = Array.from(
+    document.querySelectorAll(`[data-scope="${scope}"] [data-filter="category"]`)
+  );
+  const authorSelect = document.querySelector(`[data-scope="${scope}"] [data-filter="author"]`);
+  const scholarSelect = document.querySelector(`[data-scope="${scope}"] [data-filter="scholar"]`);
+  const languageSelect = document.querySelector(`[data-scope="${scope}"] [data-filter="language"]`);
+  const typeSelect = document.querySelector(`[data-scope="${scope}"] [data-filter="type"]`);
+  const sortSelect = document.querySelector(`[data-scope="${scope}"] [data-filter="sort"]`);
+
+  const fuse = new Fuse(items, {
+    includeScore: true,
+    includeMatches: true,
+    threshold: 0.33,
+    ignoreLocation: true,
+    keys: [
+      { name: 'title', weight: 0.4 },
+      { name: 'body', weight: 0.35 },
+      { name: 'author', weight: 0.15 },
+      { name: 'tags', weight: 0.1 }
+    ]
+  });
+
+  const state = {
+    query: '',
+    collections: new Set(initialCollections),
+    author: '',
+    scholar: '',
+    language: '',
+    contentType: '',
+    sort: 'newest'
+  };
+
+  const getCategoryFilterValues = () =>
+    new Set(
+      categoryInputs
+        .filter((input) => input.checked)
+        .map((input) => input.value)
+    );
+
+  const applyFilters = () => {
+    let filtered = [...items];
+
+    if (state.collections.size) {
+      filtered = filtered.filter((item) => state.collections.has(item.collection));
+    }
+
+    if (state.author) {
+      filtered = filtered.filter((item) => item.author === state.author);
+    }
+
+    if (state.scholar) {
+      filtered = filtered.filter((item) => item.scholar === state.scholar);
+    }
+
+    if (state.language) {
+      filtered = filtered.filter((item) => item.languages.includes(state.language));
+    }
+
+    if (state.contentType) {
+      filtered = filtered.filter((item) => item.contentType === state.contentType);
+    }
+
+    let resultsWithMatches = filtered.map((item) => ({ item, matches: [] }));
+
+    if (state.query) {
+      const fuseResults = fuse.search(state.query);
+      const matchMap = new Map(fuseResults.map((result) => [result.item.id, result]));
+      resultsWithMatches = filtered
+        .filter((item) => matchMap.has(item.id))
+        .map((item) => {
+          const match = matchMap.get(item.id);
+          return {
+            item,
+            matches: match?.matches ?? []
+          };
+        });
+    }
+
+    resultsWithMatches.sort((a, b) => {
+      const first = new Date(a.item.date).getTime();
+      const second = new Date(b.item.date).getTime();
+      if (state.sort === 'oldest') {
+        return first - second;
+      }
+      return second - first;
+    });
+
+    return resultsWithMatches;
+  };
+
+  const renderResults = () => {
+    const results = applyFilters();
+    const total = results.length;
+
+    if (countElement) {
+      const activeCollections = state.collections.size ? `${state.collections.size} selected` : 'All categories';
+      const activeFilters = [
+        activeCollections,
+        state.language ? `Language: ${state.language}` : null,
+        state.contentType ? `Type: ${state.contentType}` : null,
+        state.author ? `Author: ${state.author}` : null,
+        state.scholar ? `Scholar: ${state.scholar}` : null
+      ]
+        .filter(Boolean)
+        .join(' • ');
+
+      countElement.textContent = `${total} resource${total === 1 ? '' : 's'} found${activeFilters ? ` • ${activeFilters}` : ''}`;
+    }
+
+    if (!total) {
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '';
+      }
+      if (emptyState) {
+        emptyState.classList.remove('hidden');
+      }
+      return;
+    }
+
+    if (emptyState) {
+      emptyState.classList.add('hidden');
+    }
+
+    const cards = results
+      .map(({ item, matches }) => {
+        const titleMatch = matches.find((match) => match.key === 'title');
+        const bodyMatch = matches.find((match) => match.key === 'body');
+        const title = highlightText(item.title, titleMatch?.indices ?? []);
+        const snippet = buildSnippet(item, bodyMatch);
+        const tagList = item.tags
+          .slice(0, 4)
+          .map(
+            (tag) =>
+              `<span class="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">${escapeHtml(tag)}</span>`
+          )
+          .join('');
+
+        return `
+          <article class="group flex h-full flex-col rounded-3xl border border-primary/10 bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 dark:bg-slate-900/50">
+            <a href="${item.url}" class="flex h-full flex-col gap-4">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-lg font-semibold leading-6 text-[var(--color-text)] transition group-hover:text-primary">${title}</h3>
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">${escapeHtml(
+                  formatCollection(item.collection)
+                )}</span>
+              </div>
+              <p class="text-sm text-[var(--color-text)]/70">${escapeHtml(item.description)}</p>
+              <p class="text-xs leading-relaxed text-[var(--color-text)]/60">${snippet}</p>
+              <div class="mt-auto space-y-1 text-xs text-[var(--color-text)]/50">
+                <p>${formatDate(item.date)} • ${escapeHtml(item.author)}</p>
+                <p>${escapeHtml(item.languages.join(', '))}</p>
+              </div>
+              ${tagList ? `<div class="flex flex-wrap gap-1">${tagList}</div>` : ''}
+            </a>
+          </article>
+        `;
+      })
+      .join('');
+
+    if (resultsContainer) {
+      resultsContainer.innerHTML = cards;
+    }
+  };
+
+  const debounce = (fn, delay = 200) => {
+    let timer = null;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), delay);
+    };
+  };
+
+  const updateCollectionsFromInputs = () => {
+    state.collections = getCategoryFilterValues();
+  };
+
+  if (categoryInputs.length) {
+    categoryInputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        updateCollectionsFromInputs();
+        renderResults();
+      });
+    });
+  } else if (!state.collections.size) {
+    state.collections = new Set(collectionOptions);
+  }
+
+  if (authorSelect) {
+    authorSelect.addEventListener('change', (event) => {
+      state.author = event.target.value;
+      renderResults();
+    });
+  }
+
+  if (scholarSelect) {
+    scholarSelect.addEventListener('change', (event) => {
+      state.scholar = event.target.value;
+      renderResults();
+    });
+  }
+
+  if (languageSelect) {
+    languageSelect.addEventListener('change', (event) => {
+      state.language = event.target.value;
+      renderResults();
+    });
+  }
+
+  if (typeSelect) {
+    typeSelect.addEventListener('change', (event) => {
+      state.contentType = event.target.value;
+      renderResults();
+    });
+  }
+
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (event) => {
+      state.sort = event.target.value;
+      renderResults();
+    });
+  }
+
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      state.query = '';
+      state.collections = new Set(initialCollections);
+      state.author = '';
+      state.scholar = '';
+      state.language = '';
+      state.contentType = '';
+      state.sort = 'newest';
+
+      if (searchInput) {
+        searchInput.value = '';
+      }
+
+      if (categoryInputs.length) {
+        categoryInputs.forEach((input) => {
+          input.checked = initialCollections.includes(input.value);
+        });
+      }
+
+      if (authorSelect) authorSelect.value = '';
+      if (scholarSelect) scholarSelect.value = '';
+      if (languageSelect) languageSelect.value = '';
+      if (typeSelect) typeSelect.value = '';
+      if (sortSelect) sortSelect.value = 'newest';
+
+      renderResults();
+    });
+  }
+
+  if (searchInput) {
+    const debouncedSearch = debounce((value) => {
+      state.query = value.trim();
+      renderResults();
+    });
+
+    searchInput.addEventListener('input', (event) => {
+      debouncedSearch(event.target.value);
+    });
+  }
+
+  renderResults();
+</script>

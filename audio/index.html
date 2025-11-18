@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Audio Library</title><meta name="description" content="Listen to translated lessons, khutbahs, and reminders from the scholars of the Sunnah."><link rel="icon" href="/favicon.svg"><script>
+      const STORAGE_KEY = 'ssn-theme';
+      const root = document.documentElement;
+      const stored = localStorage.getItem(STORAGE_KEY);
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const theme = stored ?? (prefersDark.matches ? 'dark' : 'light');
+      root.dataset.theme = theme;
+      root.classList.toggle('dark', theme === 'dark');
+      const systemThemeListener = (event) => {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          const systemTheme = event.matches ? 'dark' : 'light';
+          root.dataset.theme = systemTheme;
+          root.classList.toggle('dark', systemTheme === 'dark');
+        }
+      };
+      if (typeof prefersDark.addEventListener === 'function') {
+        prefersDark.addEventListener('change', systemThemeListener);
+      } else if (typeof prefersDark.addListener === 'function') {
+        prefersDark.addListener(systemThemeListener);
+      }
+    </script><link rel="stylesheet" href="/_astro/about.CAbnpyM0.css">
+<link rel="stylesheet" href="/_astro/articles.Bss9_vhh.css"></head> <body class="flex min-h-screen flex-col bg-[var(--color-surface)] text-[var(--color-text)]"> <header class="sticky top-0 z-50 border-b border-primary/10 bg-[var(--color-surface)]/90 backdrop-blur"> <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6"> <div class="flex items-center justify-between gap-3"> <a href="/" class="flex items-center gap-3 text-base font-semibold tracking-tight md:text-lg"> <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-sm font-bold uppercase text-primary">SSN</span> <span class="text-[var(--color-text)]">Salafi Science Network</span> </a> <div class="hidden items-center gap-2 md:flex"> <nav class="flex items-center gap-5 text-sm font-medium"> <a href="/" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Home </a><a href="/lessons" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Lessons </a><a href="/audio" class="transition-colors text-primary" aria-current="page"> Audio </a><a href="/books" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Books </a><a href="/articles" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Articles </a><a href="/fatwas" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Fatwas </a><a href="/scholars" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Scholars </a><a href="/about" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> About </a><a href="/contact" class="transition-colors text-[var(--color-text)]/80 hover:text-primary"> Contact </a> </nav> <button type="button" data-theme-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-[var(--color-surface)] text-[var(--color-text)] shadow-sm transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-[var(--color-surface)] dark:hover:text-primary" aria-label="Toggle color theme"> <span class="sr-only">Toggle color theme</span> <svg class="h-5 w-5 transition duration-200 dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1.5a1 1 0 1 1 2 0V21a1 1 0 0 1-1 1Zm0-19a1 1 0 0 1 1-1V1a1 1 0 0 1 2 0v1.5a1 1 0 1 1-2 0V2a1 1 0 0 1-1-1ZM4.22 5.64a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.42 1.41L4.22 7.05a1 1 0 0 1 0-1.41Zm12.31 12.32a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 0 1-1.42 1.41l-1.05-1.06a1 1 0 0 1 0-1.41ZM2 13a1 1 0 0 1-1-1H.5a1 1 0 0 1 0-2H1a1 1 0 0 1 0 2h.5a1 1 0 0 1-1 1Zm19.5 0a1 1 0 1 1 0-2H22a1 1 0 0 1 0 2h-.5Zm-14.81 5.55a1 1 0 0 1 0 1.41L4.63 21a1 1 0 0 1-1.41-1.41l1.05-1.05a1 1 0 0 1 1.41 0Zm12.32-12.31a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 0 1 1.41 1.41l-1.05 1.05a1 1 0 0 1-1.42 0Z"></path> </svg> <svg class="hidden h-5 w-5 transition duration-200 dark:block" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 1 0 21 12.79Z"></path> </svg> </button> <script type="module">
+  import { initThemeToggle } from '@scripts/theme-toggle';
+
+  initThemeToggle();
+</script> </div> <div class="md:hidden"> <button type="button" data-theme-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-[var(--color-surface)] text-[var(--color-text)] shadow-sm transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-[var(--color-surface)] dark:hover:text-primary" aria-label="Toggle color theme"> <span class="sr-only">Toggle color theme</span> <svg class="h-5 w-5 transition duration-200 dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1.5a1 1 0 1 1 2 0V21a1 1 0 0 1-1 1Zm0-19a1 1 0 0 1 1-1V1a1 1 0 0 1 2 0v1.5a1 1 0 1 1-2 0V2a1 1 0 0 1-1-1ZM4.22 5.64a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.42 1.41L4.22 7.05a1 1 0 0 1 0-1.41Zm12.31 12.32a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 0 1-1.42 1.41l-1.05-1.06a1 1 0 0 1 0-1.41ZM2 13a1 1 0 0 1-1-1H.5a1 1 0 0 1 0-2H1a1 1 0 0 1 0 2h.5a1 1 0 0 1-1 1Zm19.5 0a1 1 0 1 1 0-2H22a1 1 0 0 1 0 2h-.5Zm-14.81 5.55a1 1 0 0 1 0 1.41L4.63 21a1 1 0 0 1-1.41-1.41l1.05-1.05a1 1 0 0 1 1.41 0Zm12.32-12.31a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 0 1 1.41 1.41l-1.05 1.05a1 1 0 0 1-1.42 0Z"></path> </svg> <svg class="hidden h-5 w-5 transition duration-200 dark:block" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 1 0 21 12.79Z"></path> </svg> </button> <script type="module">
+  import { initThemeToggle } from '@scripts/theme-toggle';
+
+  initThemeToggle();
+</script> </div> </div> <div class="flex flex-col gap-3 md:hidden"> <nav class="flex flex-wrap items-center gap-3 text-sm font-medium"> <a href="/" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Home </a><a href="/lessons" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Lessons </a><a href="/audio" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Audio </a><a href="/books" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Books </a><a href="/articles" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Articles </a><a href="/fatwas" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Fatwas </a><a href="/scholars" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Scholars </a><a href="/about" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> About </a><a href="/contact" class="rounded-full bg-[var(--color-muted)] px-3 py-1 text-[var(--color-text)]/80 transition hover:bg-primary/10 hover:text-primary"> Contact </a> </nav> </div> <div class="relative"> <label for="search-02wvx8" class="sr-only">
+Search the Salafi Science Network
+</label> <input id="search-02wvx8" type="search" placeholder="Search the knowledge base..." class="w-full rounded-2xl border border-primary/10 bg-[var(--color-muted)]/70 px-4 py-3 text-sm text-[var(--color-text)] shadow-sm transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 dark:bg-slate-900/60" autocomplete="off"> <div id="search-02wvx8-results" class="absolute left-0 top-full z-40 mt-2 hidden w-full overflow-hidden rounded-2xl border border-primary/10 bg-[var(--color-surface)] shadow-xl" role="listbox"></div> </div> <script type="module">
+  import Fuse from 'fuse.js';
+  import searchEntries from '@scripts/search-data';
+
+  const input = document.getElementById({JSON.stringify(inputId)});
+  const resultsPanel = document.getElementById({JSON.stringify(resultsId)});
+
+  if (input && resultsPanel) {
+    const fuse = new Fuse(searchEntries, {
+      includeScore: true,
+      threshold: 0.35,
+      ignoreLocation: true,
+      keys: ['title', 'description', 'tags']
+    });
+
+    const renderResults = (items) => {
+      if (!items.length) {
+        resultsPanel.classList.add('hidden');
+        resultsPanel.innerHTML = '';
+        return;
+      }
+
+      resultsPanel.innerHTML = `
+        <ul class="divide-y divide-primary/10">
+          ${items
+            .slice(0, 6)
+            .map(
+              (item) => `
+                <li>
+                  <a href="${item.item.url}" class="block px-4 py-3 transition hover:bg-primary/10">
+                    <p class="text-sm font-semibold text-[var(--color-text)]">${item.item.title}</p>
+                    <p class="mt-1 text-xs text-[var(--color-text)]/70">${item.item.description}</p>
+                  </a>
+                </li>
+              `
+            )
+            .join('')}
+        </ul>
+      `;
+      resultsPanel.classList.remove('hidden');
+    };
+
+    const handleInput = (event) => {
+      const query = event.target.value.trim();
+      if (!query) {
+        resultsPanel.classList.add('hidden');
+        resultsPanel.innerHTML = '';
+        return;
+      }
+
+      const matches = fuse.search(query);
+      renderResults(matches);
+    };
+
+    input.addEventListener('input', handleInput);
+    input.addEventListener('focus', (event) => {
+      if (event.target.value.trim()) {
+        const matches = fuse.search(event.target.value.trim());
+        renderResults(matches);
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!resultsPanel.contains(event.target) && event.target !== input) {
+        resultsPanel.classList.add('hidden');
+      }
+    });
+  }
+</script> </div> </header> <main class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-4 py-10 sm:px-6"> <section class="rounded-3xl bg-[var(--color-muted)] px-6 py-8 shadow-sm dark:bg-slate-800/70">  </section> <section class="space-y-10"> <header class="space-y-3"> <p class="text-xs uppercase tracking-[0.35em] text-primary/70"> Audio Library </p> <h1 class="text-3xl font-semibold text-[var(--color-text)] sm:text-4xl">Audio Library</h1> <p class="max-w-3xl text-base text-[var(--color-text)]/70"> Listen to translated lessons, khutbahs, and reminders from the scholars of the Sunnah. </p> </header> <div class="flex flex-wrap items-center gap-2 rounded-2xl border border-primary/10 bg-[var(--color-muted)]/60 p-4 text-xs font-semibold uppercase tracking-[0.2em] dark:bg-slate-900/60"> <span class="rounded-full border border-primary/20 px-3 py-1 text-[var(--color-text)]/70"> Aqeedah </span><span class="rounded-full border border-primary/20 px-3 py-1 text-[var(--color-text)]/70"> Tafsir </span><span class="rounded-full border border-primary/20 px-3 py-1 text-[var(--color-text)]/70"> Tazkiyah </span> </div> <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">   <a href="/audio/kitab-at-tawheed-series" class="group flex h-full flex-col rounded-3xl border border-primary/10 bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 dark:bg-slate-900/50"> <div class="flex items-center justify-between gap-3"> <h3 class="text-lg font-semibold text-[var(--color-text)] transition group-hover:text-primary"> Explanation of Kitab at-Tawheed </h3> <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-primary"> Audio </span> </div> <p class="mt-3 text-sm text-[var(--color-text)]/70"> Weekly lessons covering the seminal text with insights from senior scholars. </p> <p class="mt-4 text-xs text-[var(--color-text)]/50"> 24 audio sessions </p> </a><a href="/audio/tafsir-juz-amma" class="group flex h-full flex-col rounded-3xl border border-primary/10 bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 dark:bg-slate-900/50"> <div class="flex items-center justify-between gap-3"> <h3 class="text-lg font-semibold text-[var(--color-text)] transition group-hover:text-primary"> Tafsir Juz Amma </h3> <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-primary"> Audio </span> </div> <p class="mt-3 text-sm text-[var(--color-text)]/70"> Concise tafsir of the short surahs for daily reflection and memorisation. </p> <p class="mt-4 text-xs text-[var(--color-text)]/50"> 15 audio sessions </p> </a><a href="/audio/purification-of-the-heart" class="group flex h-full flex-col rounded-3xl border border-primary/10 bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 dark:bg-slate-900/50"> <div class="flex items-center justify-between gap-3"> <h3 class="text-lg font-semibold text-[var(--color-text)] transition group-hover:text-primary"> Purification of the Heart </h3> <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-primary"> Audio </span> </div> <p class="mt-3 text-sm text-[var(--color-text)]/70"> Reminders focused on rectifying the heart with Qur’anic guidance and hadith. </p> <p class="mt-4 text-xs text-[var(--color-text)]/50"> 10 audio reminders </p> </a> </div> </section>  </main> <footer class="border-t border-primary/10 bg-[var(--color-muted)]/60 py-10 text-sm text-[var(--color-text)]/70 dark:bg-slate-900/70"> <div class="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:justify-between"> <div class="max-w-md space-y-3"> <div class="flex items-center gap-3 text-base font-semibold tracking-tight"> <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-xs font-bold uppercase text-primary">SSN</span> <span class="text-[var(--color-text)]">Salafi Science Network</span> </div> <p class="text-sm text-[var(--color-text)]/70">
+Sharing authentic Islamic knowledge through lessons, texts, and guidance from the scholars of the Salaf.
+</p> </div> <div class="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-3"> <div> <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-text)]"> Study </h3> <ul class="space-y-2"> <li> <a href="/lessons" class="transition hover:text-primary"> Lessons </a> </li><li> <a href="/audio" class="transition hover:text-primary"> Audio </a> </li><li> <a href="/books" class="transition hover:text-primary"> Books </a> </li> </ul> </div><div> <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-text)]"> Research </h3> <ul class="space-y-2"> <li> <a href="/articles" class="transition hover:text-primary"> Articles </a> </li><li> <a href="/fatwas" class="transition hover:text-primary"> Fatwas </a> </li><li> <a href="/scholars" class="transition hover:text-primary"> Scholars </a> </li> </ul> </div><div> <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-text)]"> Community </h3> <ul class="space-y-2"> <li> <a href="/about" class="transition hover:text-primary"> About </a> </li><li> <a href="/contact" class="transition hover:text-primary"> Contact </a> </li><li> <a href="/privacy" class="transition hover:text-primary"> Privacy </a> </li> </ul> </div> </div> </div> <div class="mx-auto mt-8 flex w-full max-w-6xl flex-col-reverse gap-4 px-4 text-xs text-[var(--color-text)]/60 sm:flex-row sm:items-center sm:justify-between sm:px-6"> <p>© 2025 Salafi Science Network. All rights reserved.</p> <div class="flex flex-wrap items-center gap-4"> <a href="mailto:contact@salafisciencenetwork.org" class="hover:text-primary">
+contact@salafisciencenetwork.org
+</a> <a href="/privacy" class="hover:text-primary">Privacy Policy</a> </div> </div> </footer> </body></html>

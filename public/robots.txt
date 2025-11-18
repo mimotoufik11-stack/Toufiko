@@ -3,4 +3,4 @@ Allow: /
 Disallow: /.astro/
 Disallow: /.git/
 
-Sitemap: https://mimotoufik11-stack.github.io/Toufiko/sitemap.xml
+Sitemap: https://mimotoufik11-stack.github.io/salafi-science-site/sitemap.xml

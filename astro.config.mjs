@@ -21,7 +21,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: []
   },
-  site: 'https://mimotoufik11-stack.github.io/Toufiko',
+  site: 'https://mimotoufik11-stack.github.io/salafi-science-site',
   output: 'static',
   build: {
     format: 'directory'

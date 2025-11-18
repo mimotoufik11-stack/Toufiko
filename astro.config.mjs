@@ -21,5 +21,10 @@ export default defineConfig({
   markdown: {
     remarkPlugins: []
   },
-  site: 'https://salafisciencenetwork.org'
+  site: 'https://mimotoufik11-stack.github.io/salafi-science-site',
+  base: '/salafi-science-site/',
+  output: 'static',
+  build: {
+    format: 'directory'
+  }
 });

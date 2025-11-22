@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Background -->
+    <path
+        android:fillColor="@color/surface_dark_alt"
+        android:pathData="M0,0h200v200h-200z" />
+    
+    <!-- Error icon -->
+    <path
+        android:fillColor="@color/error"
+        android:pathData="M100,40c33.14,0 60,26.86 60,60s-26.86,60 -60,60 -60,-26.86 -60,-60 26.86,-60 60,-60z" />
+    <path
+        android:fillColor="@color/text_white"
+        android:pathData="M85,85h30v30h-30z" />
+    <path
+        android:fillColor="@color/text_white"
+        android:pathData="M85,125h30v5h-30z" />
+    
+    <!-- Text "Error" -->
+    <path
+        android:fillColor="@color/text_secondary"
+        android:pathData="M80,155h40v8h-40z" />
+</vector>

@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">العلمية</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_library">المكتبة</string>
+    <string name="nav_audio">الصوتيات</string>
+    
+    <!-- Content Types -->
+    <string name="type_book">كتاب</string>
+    <string name="type_audio">صوتي</string>
+    <string name="type_lesson">درس</string>
+    <string name="type_fatwa">فتوى</string>
+    <string name="type_scholar">عالم</string>
+    <string name="type_article">مقال</string>
+    
+    <!-- Filter Chips -->
+    <string name="chip_all">الكل</string>
+    <string name="chip_books">الكتب</string>
+    <string name="chip_audio">الصوتيات</string>
+    <string name="chip_lessons">الدروس</string>
+    <string name="chip_fatwas">الفتاوى</string>
+    <string name="chip_scholars">العلماء</string>
+    
+    <!-- Loading and Error States -->
+    <string name="loading">جاري التحميل...</string>
+    <string name="error_loading_content">خطأ في تحميل المحتوى</string>
+    <string name="error_loading_audio">خطأ في تحميل المحتوى الصوتي</string>
+    <string name="no_content_available">لا يوجد محتوى متاح</string>
+    <string name="no_audio_content">لا يوجد محتوى صوتي متاح</string>
+    <string name="retry">إعادة المحاولة</string>
+    
+    <!-- Detail Screen -->
+    <string name="author_format">المؤلف: %s</string>
+    <string name="share_content">مشاركة المحتوى</string>
+    <string name="open_in_browser">فتح في المتصفح</string>
+    <string name="error_opening_link">خطأ في فتح الرابط</string>
+    <string name="audio_playback_coming_soon">تشغيل الصوت قريباً</string>
+    <string name="playing_audio">جاري تشغيل: %s</string>
+    
+    <!-- Menu Actions -->
+    <string name="action_share">مشاركة</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="action_about">حول التطبيق</string>
+    
+    <!-- Accessibility -->
+    <string name="content_image">صورة المحتوى</string>
+    <string name="play_audio">تشغيل الصوت</string>
+    <string name="content_title">عنوان المحتوى</string>
+    
+    <!-- General -->
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="close">إغلاق</string>
+</resources>

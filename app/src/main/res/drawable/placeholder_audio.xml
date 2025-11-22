@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Background -->
+    <path
+        android:fillColor="@color/surface_dark_alt"
+        android:pathData="M0,0h200v200h-200z" />
+    
+    <!-- Audio waveform -->
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M40,60h10v80h-10z" />
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M60,50h10v90h-10z" />
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M80,40h10v110h-10z" />
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M100,30h10v130h-10z" />
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M120,40h10v110h-10z" />
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M140,50h10v90h-10z" />
+    <path
+        android:fillColor="@color/gold_luxury"
+        android:pathData="M160,60h10v80h-10z" />
+    
+    <!-- Text "Audio" -->
+    <path
+        android:fillColor="@color/text_secondary"
+        android:pathData="M75,155h50v8h-50z" />
+</vector>

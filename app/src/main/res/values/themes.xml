@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Theme.AlIlmia" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/gold_luxury</item>
+        <item name="colorOnPrimary">@color/background_black</item>
+        <item name="colorPrimaryContainer">@color/gold_luxury</item>
+        <item name="colorOnPrimaryContainer">@color/background_black</item>
+        
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/gold_light</item>
+        <item name="colorOnSecondary">@color/background_black</item>
+        <item name="colorSecondaryContainer">@color/gold_light</item>
+        <item name="colorOnSecondaryContainer">@color/background_black</item>
+        
+        <!-- Tertiary brand color -->
+        <item name="colorTertiary">@color/gold_accent</item>
+        <item name="colorOnTertiary">@color/background_black</item>
+        <item name="colorTertiaryContainer">@color/gold_accent</item>
+        <item name="colorOnTertiaryContainer">@color/background_black</item>
+        
+        <!-- Surface colors -->
+        <item name="android:colorBackground">@color/background_black</item>
+        <item name="colorOnBackground">@color/text_white</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        <item name="colorSurfaceVariant">@color/surface_dark_alt</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        
+        <!-- Status and navigation bars -->
+        <item name="android:statusBarColor">@color/background_black</item>
+        <item name="android:navigationBarColor">@color/background_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_white</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorTertiary">@color/text_tertiary</item>
+        
+        <!-- Card and elevated surfaces -->
+        <item name="cardBackgroundColor">@color/surface_dark</item>
+        <item name="colorSurfaceInverse">@color/text_white</item>
+        <item name="colorOnSurfaceInverse">@color/background_black</item>
+        
+        <!-- Ripple effect -->
+        <item name="colorControlHighlight">@color/overlay_light</item>
+        
+        <!-- RTL support -->
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:textDirection">rtl</item>
+    </style>
+    
+    <!-- Theme for activities without action bar -->
+    <style name="Theme.AlIlmia.NoActionBar" parent="Theme.AlIlmia">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    
+    <!-- Theme for toolbar -->
+    <style name="Theme.AlIlmia.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">@color/text_white</item>
+        <item name="subtitleTextColor">@color/text_secondary</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="navigationIconTint">@color/gold_luxury</item>
+    </style>
+    
+    <!-- Theme for bottom navigation -->
+    <style name="Theme.AlIlmia.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AlIlmia.BottomNavigation</item>
+    </style>
+    
+    <style name="ThemeOverlay.AlIlmia.BottomNavigation" parent="">
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_secondary</item>
+        <item name="colorPrimary">@color/gold_luxury</item>
+        <item name="colorSecondary">@color/gold_light</item>
+    </style>
+    
+    <!-- Theme for cards -->
+    <style name="Theme.AlIlmia.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/surface_dark</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="rippleColor">@color/overlay_light</item>
+    </style>
+    
+    <!-- Theme for text inputs -->
+    <style name="Theme.AlIlmia.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/gold_luxury</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+    
+    <!-- Theme for buttons -->
+    <style name="Theme.AlIlmia.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/gold_luxury</item>
+        <item name="android:textColor">@color/background_black</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+    
+    <style name="Theme.AlIlmia.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/gold_luxury</item>
+        <item name="android:textColor">@color/gold_luxury</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+    
+    <!-- Theme for chips -->
+    <style name="Theme.AlIlmia.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/surface_dark_alt</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="checkedIconTint">@color/background_black</item>
+        <item name="chipStrokeColor">@color/gold_luxury</item>
+        <item name="chipStrokeWidth">1dp</item>
+    </style>
+    
+    <!-- Theme for progress indicators -->
+    <style name="Theme.AlIlmia.ProgressBar" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorColor">@color/gold_luxury</item>
+        <item name="trackColor">@color/surface_dark_alt</item>
+    </style>
+</resources>

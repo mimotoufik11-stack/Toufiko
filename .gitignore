@@ -1,7 +1,94 @@
-node_modules/
-dist/
-.env
-.env.*
+# Gradle files
+.gradle/
+build/
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS files
+*.log
 .DS_Store
+
+# Android Studio generated files
+.idea/
+*.iml
+*.apk
+*.ap_
+*.aab
+*.jks
+*.keystore
+
+# Android Studio build output
+out/
+.cxx/
+
+# Lint output
+lint-results.xml
+lint-results-*.html
+
+# Google Services
+google-services.json
+
+# Navigation files that Android Studio is too dumb to handle
+app/navigation.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Play services xml
+google-services.json
+
+# Freeline
+freeline.py
+freeline/
+freeline_files/
+
+# FastBuild
+.fastbuild/
+
+# fastlane
+fastlane/report.xml
+fastlane/preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/readme.html
+
+# Android Profiler
+*.trace
+
+# Kotlin/Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Node (for any build tools)
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Virtual machines
 .vscode/
 .idea/
+
+# System files
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db

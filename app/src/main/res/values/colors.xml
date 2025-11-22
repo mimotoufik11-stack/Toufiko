@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="black_background">#000000</color>
+    <color name="black_card">#1A1A1A</color>
+    <color name="gold_primary">#D4AF37</color>
+    <color name="gold_soft">#F4DF99</color>
+
+    <!-- Text Colors -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_grey">#B0B0B0</color>
+    <color name="text_grey_dark">#808080</color>
+
+    <!-- UI Elements -->
+    <color name="search_bg">#252525</color>
+    <color name="overlay_dark">#80000000</color>
+    <color name="card_bg">#1A1A1A</color>
+
+    <!-- Status colors -->
+    <color name="error_red">#FF5252</color>
+    <color name="success_green">#4CAF50</color>
+
+    <!-- Material 3 System colors -->
+    <color name="md_theme_light_primary">#D4AF37</color>
+    <color name="md_theme_light_onPrimary">#000000</color>
+    <color name="md_theme_light_primaryContainer">#FFE8C1</color>
+    <color name="md_theme_light_onPrimaryContainer">#3F2E00</color>
+    <color name="md_theme_light_secondary">#E8C4A0</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#FFE0BE</color>
+    <color name="md_theme_light_onSecondaryContainer">#3E2D19</color>
+    <color name="md_theme_light_tertiary">#C2B7A0</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#D4AF37</color>
+    <color name="md_theme_light_onTertiaryContainer">#3B3630</color>
+    <color name="md_theme_light_error">#B3261E</color>
+    <color name="md_theme_light_errorContainer">#F9DEDC</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_onErrorContainer">#410E0B</color>
+    <color name="md_theme_light_background">#FFFBFE</color>
+    <color name="md_theme_light_onBackground">#201A1B</color>
+    <color name="md_theme_light_surface">#FFFBFE</color>
+    <color name="md_theme_light_onSurface">#201A1B</color>
+    <color name="md_theme_light_surfaceVariant">#F3EEE9</color>
+    <color name="md_theme_light_onSurfaceVariant">#49454E</color>
+    <color name="md_theme_light_outline">#79747E</color>
+    <color name="md_theme_light_inverseOnSurface">#F6EEF1</color>
+    <color name="md_theme_light_inverseSurface">#312F31</color>
+    <color name="md_theme_light_inversePrimary">#FFE8C1</color>
+
+    <!-- Dark theme colors -->
+    <color name="md_theme_dark_primary">#FFE8C1</color>
+    <color name="md_theme_dark_onPrimary">#3F2E00</color>
+    <color name="md_theme_dark_primaryContainer">#5A4500</color>
+    <color name="md_theme_dark_onPrimaryContainer">#FFE8C1</color>
+    <color name="md_theme_dark_secondary">#D4AF37</color>
+    <color name="md_theme_dark_onSecondary">#523C24</color>
+    <color name="md_theme_dark_secondaryContainer">#6B5239</color>
+    <color name="md_theme_dark_onSecondaryContainer">#F1DEC5</color>
+    <color name="md_theme_dark_tertiary">#B8AE99</color>
+    <color name="md_theme_dark_onTertiary">#4F4840</color>
+    <color name="md_theme_dark_tertiaryContainer">#67605A</color>
+    <color name="md_theme_dark_onTertiaryContainer">#D4C4B3</color>
+    <color name="md_theme_dark_error">#F2B8B5</color>
+    <color name="md_theme_dark_errorContainer">#8C1D18</color>
+    <color name="md_theme_dark_onError">#601410</color>
+    <color name="md_theme_dark_onErrorContainer">#F9DEDC</color>
+    <color name="md_theme_dark_background">#000000</color>
+    <color name="md_theme_dark_onBackground">#EBE0E6</color>
+    <color name="md_theme_dark_surface">#1A1A1A</color>
+    <color name="md_theme_dark_onSurface">#EBE0E6</color>
+    <color name="md_theme_dark_surfaceVariant">#49454E</color>
+    <color name="md_theme_dark_onSurfaceVariant">#CBC7D0</color>
+    <color name="md_theme_dark_outline">#95919A</color>
+    <color name="md_theme_dark_inverseOnSurface">#1A1A1A</color>
+    <color name="md_theme_dark_inverseSurface">#EBE0E6</color>
+    <color name="md_theme_dark_inversePrimary">#5A4500</color>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Dammaj</string>
+    
+    <!-- Navigation Tabs -->
+    <string name="tab_home">الرئيسية</string>
+    <string name="tab_library">المكتبة</string>
+    <string name="tab_audio">الصوتيات</string>
+    
+    <!-- Common UI -->
+    <string name="loading">جاري التحميل...</string>
+    <string name="error_loading">حدث خطأ في التحميل</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="no_content">لا يوجد محتوى</string>
+    <string name="search_hint">ابحث...</string>
+    
+    <!-- Categories -->
+    <string name="category_filter">تصفية حسب الفئة</string>
+    <string name="all_categories">جميع الفئات</string>
+    <string name="books">الكتب</string>
+    <string name="articles">المقالات</string>
+    <string name="lessons">الدروس</string>
+    <string name="fatwas">الفتاوى</string>
+    <string name="scholars">العلماء</string>
+    
+    <!-- Content -->
+    <string name="by_author">بقلم</string>
+    <string name="date_added">تاريخ الإضافة</string>
+    <string name="read_more">اقرأ المزيد</string>
+    <string name="share">مشاركة</string>
+    
+    <!-- Audio -->
+    <string name="play">تشغيل</string>
+    <string name="pause">إيقاف</string>
+    <string name="stop">إيقاف كامل</string>
+    <string name="duration">المدة</string>
+    <string name="now_playing">يتم تشغيل</string>
+    <string name="audio_player">مشغل الصوت</string>
+    
+    <!-- Error Messages -->
+    <string name="network_error">لا يوجد اتصال بالإنترنت</string>
+    <string name="server_error">خطأ في الخادم</string>
+    <string name="unknown_error">حدث خطأ غير متوقع</string>
+    <string name="content_not_found">المحتوى غير موجود</string>
+    
+    <!-- Settings -->
+    <string name="settings">الإعدادات</string>
+    <string name="language">اللغة</string>
+    <string name="theme">المظهر</string>
+    <string name="about">حول التطبيق</string>
+    <string name="version">الإصدار</string>
+    
+    <!-- Accessibility -->
+    <string name="content_description">وصف المحتوى</string>
+    <string name="image_description">صورة المحتوى</string>
+    <string name="play_button_description">زر التشغيل</string>
+    <string name="search_button_description">زر البحث</string>
+    <string name="filter_button_description">زر التصفية</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">Dammaj</string>
+    <string name="notification_channel_description">إشعارات تطبيق دمج</string>
+    
+    <!-- Permissions -->
+    <string name="permission_internet_required">يتطلب التطبيق اتصال بالإنترنت</string>
+    <string name="permission_storage_required">يتطلب التطبيق الوصول للتخزين</string>
+</resources>

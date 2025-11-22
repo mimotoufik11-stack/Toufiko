@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Theme.Dammaj" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/gold_primary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryContainer">@color/gold_dark</item>
+        <item name="colorOnPrimaryContainer">@color/text_primary</item>
+        
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/gold_accent</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryContainer">@color/gold_light</item>
+        <item name="colorOnSecondaryContainer">@color/black</item>
+        
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/black_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Navigation bar color -->
+        <item name="android:navigationBarColor">@color/black_surface</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/background_main</item>
+        <item name="colorSurface">@color/background_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        
+        <!-- Card colors -->
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">8dp</item>
+        
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        
+        <!-- Button styles -->
+        <item name="colorButtonNormal">@color/gold_primary</item>
+        <item name="android:textColorButton">@color/black</item>
+        
+        <!-- Ripple effect -->
+        <item name="colorControlHighlight">@color/ripple</item>
+        
+        <!-- RTL support -->
+        <item name="android:layoutDirection">locale</item>
+        
+        <!-- Remove action bar shadow -->
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+    <!-- Bottom Navigation Theme -->
+    <style name="BottomNavTheme" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/BottomNavOverlay</item>
+    </style>
+    
+    <style name="BottomNavOverlay">
+        <item name="colorSurface">@color/black_surface</item>
+        <item name="colorOnSurface">@color/nav_unselected</item>
+        <item name="colorPrimary">@color/nav_selected</item>
+        <item name="colorSecondary">@color/nav_selected</item>
+    </style>
+    
+    <!-- Card View Style -->
+    <style name="ContentCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+    
+    <!-- Button Style -->
+    <style name="GoldButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/gold_primary</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+    
+    <!-- Text Button Style -->
+    <style name="GoldTextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/gold_primary</item>
+    </style>
+    
+    <!-- Toolbar Style -->
+    <style name="ToolbarStyle" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/ToolbarTitleText</item>
+        <item name="android:background">@color/black_surface</item>
+        <item name="titleTextColor">@color/text_primary</item>
+    </style>
+    
+    <style name="ToolbarTitleText" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>
